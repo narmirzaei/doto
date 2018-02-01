@@ -1,0 +1,29 @@
+{
+  "tasks": [
+    {
+      "date": "2018-01-31",
+      "header": "My first task",
+      "desc": "This is my first task that I need to do"
+    },
+    {
+      "date": "2017-07-19",
+      "header": "Clean the house",
+      "desc": "I need to clean the house today. Otherwise, it's gonna be too stinky"
+    },
+    {
+      "date": "2018-02-02",
+      "header": "My second task",
+      "desc": "Yo! This is my second task"
+    },
+    {
+      "date": "2018-01-17",
+      "header": "My third task",
+      "desc": "Hello? Anybody here?"
+    },
+    {
+      "date": "2017-10-14",
+      "header": "My zero zero task",
+      "desc": "Who is going to be the guy who is doing this task so he's awesome and he's going to be fabulous"
+    }
+  ]
+}

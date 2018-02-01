@@ -8,12 +8,23 @@
 
 /* Begin PBXBuildFile section */
 		8735FBFA202251D40027D73A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8735FBF9202251D40027D73A /* AppDelegate.swift */; };
-		8735FBFC202251D40027D73A /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8735FBFB202251D40027D73A /* MainViewController.swift */; };
 		8735FBFF202251D40027D73A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8735FBFD202251D40027D73A /* Main.storyboard */; };
 		8735FC01202251D40027D73A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8735FC00202251D40027D73A /* Assets.xcassets */; };
 		8735FC04202251D40027D73A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8735FC02202251D40027D73A /* LaunchScreen.storyboard */; };
 		8735FC0F202251D40027D73A /* DoToTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8735FC0E202251D40027D73A /* DoToTests.swift */; };
 		8735FC1A202251D40027D73A /* DoToUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8735FC19202251D40027D73A /* DoToUITests.swift */; };
+		8735FC302022568A0027D73A /* TaskTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8735FC2F2022568A0027D73A /* TaskTableViewCell.xib */; };
+		8735FC32202256C40027D73A /* TaskTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8735FC31202256C40027D73A /* TaskTableViewCell.swift */; };
+		8735FC34202257B40027D73A /* BaseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8735FC33202257B40027D73A /* BaseModel.swift */; };
+		8735FC36202257BD0027D73A /* TaskModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8735FC35202257BD0027D73A /* TaskModel.swift */; };
+		8735FC382022624C0027D73A /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8735FC372022624C0027D73A /* MainViewController.swift */; };
+		8735FC3A202262F90027D73A /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8735FC39202262F90027D73A /* BaseViewController.swift */; };
+		87AE6B8B202332EE00E473B7 /* DateHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87AE6B8A202332EE00E473B7 /* DateHelper.swift */; };
+		87AE6B8D2023388600E473B7 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 87AE6B8C2023388500E473B7 /* Info.plist */; };
+		87AE6B8F2023388C00E473B7 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 87AE6B8E2023388C00E473B7 /* GoogleService-Info.plist */; };
+		AC351CB92850CFDE176AA791 /* Pods_DoToUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CF13FDC1DD6A498154A83684 /* Pods_DoToUITests.framework */; };
+		D75F31947A681B633E1B04B8 /* Pods_DoToTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7CA609E25A5CDDD86CBE263E /* Pods_DoToTests.framework */; };
+		F6662A49A228A87A1FB9EB54 /* Pods_DoTo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 285BF732CF9A9CF6A88BE81B /* Pods_DoTo.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -34,19 +45,35 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		24FE8F2C68FF7B0FACD708E3 /* Pods-DoToTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DoToTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-DoToTests/Pods-DoToTests.debug.xcconfig"; sourceTree = "<group>"; };
+		285BF732CF9A9CF6A88BE81B /* Pods_DoTo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DoTo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		43675ACD2D8BB6CC8A61A2D1 /* Pods-DoTo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DoTo.release.xcconfig"; path = "Pods/Target Support Files/Pods-DoTo/Pods-DoTo.release.xcconfig"; sourceTree = "<group>"; };
+		46D2667538CF418DFDF912B1 /* Pods-DoTo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DoTo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-DoTo/Pods-DoTo.debug.xcconfig"; sourceTree = "<group>"; };
+		70C8F21D15AEF1E40DF3AB05 /* Pods-DoToUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DoToUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-DoToUITests/Pods-DoToUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		7CA609E25A5CDDD86CBE263E /* Pods_DoToTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DoToTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8735FBF6202251D40027D73A /* DoTo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DoTo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8735FBF9202251D40027D73A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		8735FBFB202251D40027D73A /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		8735FBFE202251D40027D73A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		8735FC00202251D40027D73A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8735FC03202251D40027D73A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		8735FC05202251D40027D73A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8735FC0A202251D40027D73A /* DoToTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DoToTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		8735FC0E202251D40027D73A /* DoToTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoToTests.swift; sourceTree = "<group>"; };
 		8735FC10202251D40027D73A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8735FC15202251D40027D73A /* DoToUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DoToUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		8735FC19202251D40027D73A /* DoToUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoToUITests.swift; sourceTree = "<group>"; };
 		8735FC1B202251D40027D73A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8735FC2F2022568A0027D73A /* TaskTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TaskTableViewCell.xib; sourceTree = "<group>"; };
+		8735FC31202256C40027D73A /* TaskTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskTableViewCell.swift; sourceTree = "<group>"; };
+		8735FC33202257B40027D73A /* BaseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseModel.swift; sourceTree = "<group>"; };
+		8735FC35202257BD0027D73A /* TaskModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskModel.swift; sourceTree = "<group>"; };
+		8735FC372022624C0027D73A /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		8735FC39202262F90027D73A /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
+		87AE6B8A202332EE00E473B7 /* DateHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateHelper.swift; sourceTree = "<group>"; };
+		87AE6B8C2023388500E473B7 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = SOURCE_ROOT; };
+		87AE6B8E2023388C00E473B7 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = SOURCE_ROOT; };
+		94624ACFABC4ECB651D5C0FB /* Pods-DoToUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DoToUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-DoToUITests/Pods-DoToUITests.release.xcconfig"; sourceTree = "<group>"; };
+		997CB880438AA4313DB871C4 /* Pods-DoToTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DoToTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-DoToTests/Pods-DoToTests.release.xcconfig"; sourceTree = "<group>"; };
+		CF13FDC1DD6A498154A83684 /* Pods_DoToUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DoToUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,6 +81,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F6662A49A228A87A1FB9EB54 /* Pods_DoTo.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -61,6 +89,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D75F31947A681B633E1B04B8 /* Pods_DoToTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -68,12 +97,23 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AC351CB92850CFDE176AA791 /* Pods_DoToUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0D1500F61D12F873EA591989 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				285BF732CF9A9CF6A88BE81B /* Pods_DoTo.framework */,
+				7CA609E25A5CDDD86CBE263E /* Pods_DoToTests.framework */,
+				CF13FDC1DD6A498154A83684 /* Pods_DoToUITests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		8735FBED202251D40027D73A = {
 			isa = PBXGroup;
 			children = (
@@ -81,6 +121,8 @@
 				8735FC0D202251D40027D73A /* DoToTests */,
 				8735FC18202251D40027D73A /* DoToUITests */,
 				8735FBF7202251D40027D73A /* Products */,
+				B194B7A579FDF61B10E20D4B /* Pods */,
+				0D1500F61D12F873EA591989 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -102,6 +144,8 @@
 				8735FC292022521F0027D73A /* Models */,
 				8735FC2A202252250027D73A /* Views */,
 				8735FC28202252160027D73A /* Controllers */,
+				87AE6B89202332E200E473B7 /* Helpers */,
+				8735FC3B202266660027D73A /* Extensions */,
 			);
 			path = DoTo;
 			sourceTree = "<group>";
@@ -128,8 +172,9 @@
 			isa = PBXGroup;
 			children = (
 				8735FBF9202251D40027D73A /* AppDelegate.swift */,
-				8735FC05202251D40027D73A /* Info.plist */,
 				8735FC00202251D40027D73A /* Assets.xcassets */,
+				87AE6B8C2023388500E473B7 /* Info.plist */,
+				87AE6B8E2023388C00E473B7 /* GoogleService-Info.plist */,
 			);
 			path = Application;
 			sourceTree = "<group>";
@@ -137,7 +182,8 @@
 		8735FC28202252160027D73A /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				8735FBFB202251D40027D73A /* MainViewController.swift */,
+				8735FC39202262F90027D73A /* BaseViewController.swift */,
+				8735FC372022624C0027D73A /* MainViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -145,6 +191,8 @@
 		8735FC292022521F0027D73A /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				8735FC33202257B40027D73A /* BaseModel.swift */,
+				8735FC35202257BD0027D73A /* TaskModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -152,6 +200,7 @@
 		8735FC2A202252250027D73A /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				8735FC2E202256560027D73A /* TableViewCells */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -165,6 +214,43 @@
 			path = Storyboards;
 			sourceTree = "<group>";
 		};
+		8735FC2E202256560027D73A /* TableViewCells */ = {
+			isa = PBXGroup;
+			children = (
+				8735FC2F2022568A0027D73A /* TaskTableViewCell.xib */,
+				8735FC31202256C40027D73A /* TaskTableViewCell.swift */,
+			);
+			path = TableViewCells;
+			sourceTree = "<group>";
+		};
+		8735FC3B202266660027D73A /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		87AE6B89202332E200E473B7 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				87AE6B8A202332EE00E473B7 /* DateHelper.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
+		B194B7A579FDF61B10E20D4B /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				46D2667538CF418DFDF912B1 /* Pods-DoTo.debug.xcconfig */,
+				43675ACD2D8BB6CC8A61A2D1 /* Pods-DoTo.release.xcconfig */,
+				24FE8F2C68FF7B0FACD708E3 /* Pods-DoToTests.debug.xcconfig */,
+				997CB880438AA4313DB871C4 /* Pods-DoToTests.release.xcconfig */,
+				70C8F21D15AEF1E40DF3AB05 /* Pods-DoToUITests.debug.xcconfig */,
+				94624ACFABC4ECB651D5C0FB /* Pods-DoToUITests.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -172,9 +258,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 8735FC1E202251D40027D73A /* Build configuration list for PBXNativeTarget "DoTo" */;
 			buildPhases = (
+				2D32D3832092FD7A1CCF51B1 /* [CP] Check Pods Manifest.lock */,
 				8735FBF2202251D40027D73A /* Sources */,
 				8735FBF3202251D40027D73A /* Frameworks */,
 				8735FBF4202251D40027D73A /* Resources */,
+				DDCEBEEBC33EF5D354B1E1E8 /* [CP] Embed Pods Frameworks */,
+				92417B6FFFF7A73AA01A83FC /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -189,9 +278,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 8735FC21202251D40027D73A /* Build configuration list for PBXNativeTarget "DoToTests" */;
 			buildPhases = (
+				D5250DAC4AF8A50B23DBF22C /* [CP] Check Pods Manifest.lock */,
 				8735FC06202251D40027D73A /* Sources */,
 				8735FC07202251D40027D73A /* Frameworks */,
 				8735FC08202251D40027D73A /* Resources */,
+				462E830AF66AB5BCC51864A6 /* [CP] Embed Pods Frameworks */,
+				4A46AAD48E3A09C061C7E64C /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -207,9 +299,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 8735FC24202251D40027D73A /* Build configuration list for PBXNativeTarget "DoToUITests" */;
 			buildPhases = (
+				38F18DBA4AB294A03EB32E8A /* [CP] Check Pods Manifest.lock */,
 				8735FC11202251D40027D73A /* Sources */,
 				8735FC12202251D40027D73A /* Frameworks */,
 				8735FC13202251D40027D73A /* Resources */,
+				5E8C26372E38782541C9DC2D /* [CP] Embed Pods Frameworks */,
+				530603C708C94CE7FEC0FE94 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -272,9 +367,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8735FC302022568A0027D73A /* TaskTableViewCell.xib in Resources */,
 				8735FC04202251D40027D73A /* LaunchScreen.storyboard in Resources */,
 				8735FC01202251D40027D73A /* Assets.xcassets in Resources */,
+				87AE6B8D2023388600E473B7 /* Info.plist in Resources */,
 				8735FBFF202251D40027D73A /* Main.storyboard in Resources */,
+				87AE6B8F2023388C00E473B7 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -294,13 +392,174 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		2D32D3832092FD7A1CCF51B1 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-DoTo-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		38F18DBA4AB294A03EB32E8A /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-DoToUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		462E830AF66AB5BCC51864A6 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-DoToTests/Pods-DoToTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		4A46AAD48E3A09C061C7E64C /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-DoToTests/Pods-DoToTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		530603C708C94CE7FEC0FE94 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-DoToUITests/Pods-DoToUITests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		5E8C26372E38782541C9DC2D /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-DoToUITests/Pods-DoToUITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		92417B6FFFF7A73AA01A83FC /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-DoTo/Pods-DoTo-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D5250DAC4AF8A50B23DBF22C /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-DoToTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		DDCEBEEBC33EF5D354B1E1E8 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-DoTo/Pods-DoTo-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
+				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
+				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
+				"${BUILT_PRODUCTS_DIR}/pop/pop.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/pop.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-DoTo/Pods-DoTo-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		8735FBF2202251D40027D73A /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8735FBFC202251D40027D73A /* MainViewController.swift in Sources */,
+				87AE6B8B202332EE00E473B7 /* DateHelper.swift in Sources */,
 				8735FBFA202251D40027D73A /* AppDelegate.swift in Sources */,
+				8735FC36202257BD0027D73A /* TaskModel.swift in Sources */,
+				8735FC34202257B40027D73A /* BaseModel.swift in Sources */,
+				8735FC32202256C40027D73A /* TaskTableViewCell.swift in Sources */,
+				8735FC382022624C0027D73A /* MainViewController.swift in Sources */,
+				8735FC3A202262F90027D73A /* BaseViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -464,13 +723,14 @@
 		};
 		8735FC1F202251D40027D73A /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 46D2667538CF418DFDF912B1 /* Pods-DoTo.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = PU9T8FTQ79;
-				INFOPLIST_FILE = DoTo/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.narbeh.DoTo;
+				PRODUCT_BUNDLE_IDENTIFIER = com.narbeh.doto;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -479,13 +739,14 @@
 		};
 		8735FC20202251D40027D73A /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 43675ACD2D8BB6CC8A61A2D1 /* Pods-DoTo.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = PU9T8FTQ79;
-				INFOPLIST_FILE = DoTo/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.narbeh.DoTo;
+				PRODUCT_BUNDLE_IDENTIFIER = com.narbeh.doto;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -494,6 +755,7 @@
 		};
 		8735FC22202251D40027D73A /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 24FE8F2C68FF7B0FACD708E3 /* Pods-DoToTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -511,6 +773,7 @@
 		};
 		8735FC23202251D40027D73A /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 997CB880438AA4313DB871C4 /* Pods-DoToTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -528,6 +791,7 @@
 		};
 		8735FC25202251D40027D73A /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 70C8F21D15AEF1E40DF3AB05 /* Pods-DoToUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -544,6 +808,7 @@
 		};
 		8735FC26202251D40027D73A /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 94624ACFABC4ECB651D5C0FB /* Pods-DoToUITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
