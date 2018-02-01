@@ -11,7 +11,7 @@ import Foundation
 class DateHelper {
     private static var dateFormatter : DateFormatter = {
         var _dateFormatter = DateFormatter()
-        _dateFormatter.dateFormat = "YYYY-MM-DD"
+        _dateFormatter.dateFormat = "yyyy-MM-dd"
         return _dateFormatter
     }()
     
@@ -22,6 +22,14 @@ class DateHelper {
             }
             
             return date
+        }
+        
+        return nil
+    }
+    
+    static func dateString(from localDate: Date?) -> String? {
+        if let ld = localDate {
+            return dateFormatter.string(from: ld)
         }
         
         return nil

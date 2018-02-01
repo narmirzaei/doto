@@ -22,6 +22,7 @@
 		87AE6B8B202332EE00E473B7 /* DateHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87AE6B8A202332EE00E473B7 /* DateHelper.swift */; };
 		87AE6B8D2023388600E473B7 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 87AE6B8C2023388500E473B7 /* Info.plist */; };
 		87AE6B8F2023388C00E473B7 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 87AE6B8E2023388C00E473B7 /* GoogleService-Info.plist */; };
+		87AE6B91202365BD00E473B7 /* TaskViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87AE6B90202365BD00E473B7 /* TaskViewController.swift */; };
 		AC351CB92850CFDE176AA791 /* Pods_DoToUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CF13FDC1DD6A498154A83684 /* Pods_DoToUITests.framework */; };
 		D75F31947A681B633E1B04B8 /* Pods_DoToTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7CA609E25A5CDDD86CBE263E /* Pods_DoToTests.framework */; };
 		F6662A49A228A87A1FB9EB54 /* Pods_DoTo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 285BF732CF9A9CF6A88BE81B /* Pods_DoTo.framework */; };
@@ -71,6 +72,7 @@
 		87AE6B8A202332EE00E473B7 /* DateHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateHelper.swift; sourceTree = "<group>"; };
 		87AE6B8C2023388500E473B7 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = SOURCE_ROOT; };
 		87AE6B8E2023388C00E473B7 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = SOURCE_ROOT; };
+		87AE6B90202365BD00E473B7 /* TaskViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskViewController.swift; sourceTree = "<group>"; };
 		94624ACFABC4ECB651D5C0FB /* Pods-DoToUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DoToUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-DoToUITests/Pods-DoToUITests.release.xcconfig"; sourceTree = "<group>"; };
 		997CB880438AA4313DB871C4 /* Pods-DoToTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DoToTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-DoToTests/Pods-DoToTests.release.xcconfig"; sourceTree = "<group>"; };
 		CF13FDC1DD6A498154A83684 /* Pods_DoToUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DoToUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -184,6 +186,7 @@
 			children = (
 				8735FC39202262F90027D73A /* BaseViewController.swift */,
 				8735FC372022624C0027D73A /* MainViewController.swift */,
+				87AE6B90202365BD00E473B7 /* TaskViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -530,6 +533,7 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-DoTo/Pods-DoTo-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
+				"${BUILT_PRODUCTS_DIR}/PKHUD/PKHUD.framework",
 				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
 				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
 				"${BUILT_PRODUCTS_DIR}/pop/pop.framework",
@@ -537,6 +541,7 @@
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PKHUD.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/pop.framework",
@@ -558,6 +563,7 @@
 				8735FC36202257BD0027D73A /* TaskModel.swift in Sources */,
 				8735FC34202257B40027D73A /* BaseModel.swift in Sources */,
 				8735FC32202256C40027D73A /* TaskTableViewCell.swift in Sources */,
+				87AE6B91202365BD00E473B7 /* TaskViewController.swift in Sources */,
 				8735FC382022624C0027D73A /* MainViewController.swift in Sources */,
 				8735FC3A202262F90027D73A /* BaseViewController.swift in Sources */,
 			);

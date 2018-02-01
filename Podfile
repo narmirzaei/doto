@@ -9,7 +9,7 @@ target 'DoTo' do
   pod 'pop', '~> 1.0'
   pod 'Firebase/Core'
   pod 'Firebase/Database'
-
+  pod 'PKHUD', '~> 5.0'
 
   target 'DoToTests' do
     inherit! :search_paths

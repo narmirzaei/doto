@@ -9,4 +9,11 @@
 import UIKit
 
 class BaseViewController: UIViewController {
+    func setupUserInterface() { return }
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        setupUserInterface()
+    }
 }

@@ -7,30 +7,43 @@
 //
 
 import UIKit
+import PKHUD
 import FirebaseDatabase
 
 class MainViewController: UITableViewController {
     var tasksGrouped: [String: [TaskModel]] = [:]
     var tasksGroupedSortedKeys : [String] = []
     var ref: DatabaseReference!
+    fileprivate var _refHandle: DatabaseHandle!
     
     override func viewDidLoad() {
+        super.viewDidLoad()
+        
         tableView.register(UINib(nibName: "TaskTableViewCell", bundle: nil), forCellReuseIdentifier: "TaskTableViewCell")
         
+        HUD.show(.progress)
         ref = Database.database().reference()
-        ref.child("tasks").observe(.value) { (snapshot) in
+        
+        ref.child("tasks").observe(.value, with: { (snapshot) in
             var _tasks = [TaskModel]()
-            if let tasksArray = snapshot.value as? NSArray {
-                for task in tasksArray {
+            if let tasksCollection = snapshot.value as? NSDictionary {
+                for (_, task) in tasksCollection {
                     if let _task = task as? NSDictionary {
                         _tasks.append(TaskModel(date: DateHelper.date(from: _task["date"] as? String) , header: _task["header"] as? String, desc: _task["desc"] as? String))
                     }
                 }
+                
+                self.tasksGrouped = groupTasksByDate(_tasks)
+                self.tasksGroupedSortedKeys = self.tasksGrouped.keys.sorted { $0 > $1 }
+            } else {
+                self.tasksGrouped.removeAll()
+                self.tasksGroupedSortedKeys.removeAll()
             }
             
-            self.tasksGrouped = groupTasksByDate(_tasks)
-            self.tasksGroupedSortedKeys = self.tasksGrouped.keys.sorted()
             self.tableView.reloadData()
+            HUD.hide()
+        }) { (error) in
+            HUD.flash(.error)
         }
     }
     
@@ -60,9 +73,9 @@ class MainViewController: UITableViewController {
     }
     
     //MARK: UITableViewDelegate
-
+    
     deinit {
-        
+        ref.child("tasks").removeObserver(withHandle: _refHandle)
     }
 }
 
