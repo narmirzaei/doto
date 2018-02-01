@@ -53,11 +53,15 @@ class TaskViewController: BaseViewController {
     }
     
     @objc func saveTask() {
+        guard let _date = DateHelper.dateString(from: datePickerView.date), descTextfield.text?.isEmpty == false else {
+            return
+        }
         let _refHandle = ref.child("tasks").childByAutoId()
         
         _refHandle.updateChildValues([
-            "date": DateHelper.dateString(from: datePickerView.date) ?? "",
-            "desc": descTextfield.text ?? ""]) { (error, ref) in
+            "date": _date,
+            "desc": descTextfield.text!
+        ]) { (error, ref) in
                 if(error == nil) {
                     HUD.flash(.success, delay: 0.2) { finished in
                         self.navigationController?.popViewController(animated: true)
