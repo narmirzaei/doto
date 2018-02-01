@@ -33,7 +33,7 @@ class MainViewController: UITableViewController {
                     }
                 }
                 
-                self.tasksGrouped = groupTasksByDate(_tasks)
+                self.tasksGrouped = self.groupTasksByDate(_tasks)
                 self.tasksGroupedSortedKeys = self.tasksGrouped.keys.sorted { $0 > $1 }
             } else {
                 self.tasksGrouped.removeAll()
@@ -63,7 +63,6 @@ class MainViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if let cell = tableView.dequeueReusableCell(withIdentifier: "TaskTableViewCell") as? TaskTableViewCell {
             let model = tasksGrouped[tasksGroupedSortedKeys[indexPath.section]]![indexPath.row]
-            cell.taskHeaderLabel.text = model.header
             cell.taskDescLabel.text = model.desc
             
             return cell
@@ -72,34 +71,32 @@ class MainViewController: UITableViewController {
         return UITableViewCell()
     }
     
-    //MARK: UITableViewDelegate
-    
     deinit {
         ref.child("tasks").removeObserver(withHandle: _refHandle)
     }
-}
-
-//MARK: Private methods
-private func groupTasksByDate(_ data: [TaskModel]?) -> [String: [TaskModel]] {
-    var tasksMap = [String: [TaskModel]]()
     
-    if let data = data {
-        for task in data {
-            if let date = task.date {
-                var components = NSCalendar.current.dateComponents([.day, .month, .year], from: date)
-                let key = getKey(year: components.year, month: components.month, day: components.day)
-                if tasksMap.keys.contains(where:{ (_key) -> Bool in return _key == key }) {
-                    tasksMap[key]?.append(task)
-                } else {
-                    tasksMap[key] = [task]
+    //MARK: Private methods
+    private func groupTasksByDate(_ data: [TaskModel]?) -> [String: [TaskModel]] {
+        var tasksMap = [String: [TaskModel]]()
+        
+        if let data = data {
+            for task in data {
+                if let date = task.date {
+                    var components = NSCalendar.current.dateComponents([.day, .month, .year], from: date)
+                    let key = getKey(year: components.year, month: components.month, day: components.day)
+                    if tasksMap.keys.contains(where:{ (_key) -> Bool in return _key == key }) {
+                        tasksMap[key]?.append(task)
+                    } else {
+                        tasksMap[key] = [task]
+                    }
                 }
             }
         }
+        
+        return tasksMap
     }
-
-    return tasksMap
-}
-
-private func getKey(year: Int?, month: Int?, day: Int?) -> String {
-    return "\(year ?? 0)-\(month ?? 0)-\(day ?? 0)"
+    
+    private func getKey(year: Int?, month: Int?, day: Int?) -> String {
+        return "\(year ?? 0)-\(month ?? 0)-\(day ?? 0)"
+    }
 }

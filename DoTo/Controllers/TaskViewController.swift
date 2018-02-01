@@ -21,10 +21,8 @@ class TaskViewController: BaseViewController {
     
     private let datePickerTextfield = UITextField()
     
-    @IBOutlet weak var headerTextfield: UITextField!
-    @IBOutlet weak var descTextview: UITextView!
+    @IBOutlet weak var descTextfield: UITextField!
     @IBOutlet weak var dateButton: UIButton!
-    
     @IBAction func dateButtonTapped(_ sender: Any) {
         datePickerTextfield.becomeFirstResponder()
     }
@@ -43,6 +41,7 @@ class TaskViewController: BaseViewController {
         view.addSubview(datePickerTextfield)
         datePickerTextfield.inputView = datePickerView
         datePickerView.addTarget(self, action: #selector(taskDateValueChanged(sender:)), for: .valueChanged)
+        updateDateButton(datePickerView.date)
         
         let saveDoubleTapGesture = UITapGestureRecognizer(target: self, action: #selector(saveTask))
         saveDoubleTapGesture.numberOfTapsRequired = 2
@@ -50,7 +49,7 @@ class TaskViewController: BaseViewController {
     }
     
     @objc func taskDateValueChanged(sender: UIDatePicker) {
-        dateButton.setTitle(DateHelper.dateString(from: sender.date), for: .normal)
+        updateDateButton(sender.date)
     }
     
     @objc func saveTask() {
@@ -58,10 +57,9 @@ class TaskViewController: BaseViewController {
         
         _refHandle.updateChildValues([
             "date": DateHelper.dateString(from: datePickerView.date) ?? "",
-            "header": headerTextfield.text ?? "",
-            "desc": descTextview.text]) { (error, ref) in
+            "desc": descTextfield.text ?? ""]) { (error, ref) in
                 if(error == nil) {
-                    HUD.flash(.success, delay: 0.4) { finished in
+                    HUD.flash(.success, delay: 0.2) { finished in
                         self.navigationController?.popViewController(animated: true)
                     }
                 } else {
@@ -69,4 +67,10 @@ class TaskViewController: BaseViewController {
                 }
             }
     }
+    
+    //MARK: Private methods
+    private func updateDateButton(_ date: Date) {
+        dateButton.setTitle(DateHelper.dateString(from: date), for: .normal)
+    }
+    
 }

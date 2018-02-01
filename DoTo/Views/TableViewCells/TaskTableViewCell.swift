@@ -9,11 +9,9 @@
 import UIKit
 
 class TaskTableViewCell: UITableViewCell {
-    @IBOutlet weak var taskHeaderLabel: UILabel!
     @IBOutlet weak var taskDescLabel: UILabel!
     
     override func awakeFromNib() {
-        taskHeaderLabel.text = ""
         taskDescLabel.text = ""
     }
 }
