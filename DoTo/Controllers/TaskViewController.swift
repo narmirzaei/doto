@@ -45,7 +45,7 @@ class TaskViewController: BaseViewController, FirebaseDataTransport {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        
+    
         _ref = { (task: TaskModel?) -> DatabaseReference in
             guard let _uid = task?.uid else {
                 return Database.database().reference(withPath: "tasks").childByAutoId()
@@ -57,11 +57,11 @@ class TaskViewController: BaseViewController, FirebaseDataTransport {
     }
     
     override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        
         for observer in self.modelObservers {
             observer.invalidate()
         }
-        
-        super.viewWillDisappear(animated)
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -73,9 +73,9 @@ class TaskViewController: BaseViewController, FirebaseDataTransport {
         datePickerTextfield.inputView = datePickerView
         datePickerView.addTarget(self, action: #selector(taskDateValueChanged(sender:)), for: .valueChanged)
         
-        let saveDoubleTapGesture = UITapGestureRecognizer(target: self, action: #selector(saveTask))
-        saveDoubleTapGesture.numberOfTapsRequired = 2
-        view.addGestureRecognizer(saveDoubleTapGesture)
+        let saveSwipeDownGesture = UISwipeGestureRecognizer(target: self, action: #selector(saveTask))
+        saveSwipeDownGesture.direction = .down
+        view.addGestureRecognizer(saveSwipeDownGesture)
     }
     
     @objc func taskDateValueChanged(sender: UIDatePicker) {
@@ -83,21 +83,17 @@ class TaskViewController: BaseViewController, FirebaseDataTransport {
     }
     
     @objc func saveTask() {
-        guard let _date = DateHelper.dateString(from: task.date), descTextfield.text?.isEmpty == false else {
-            return
-        }
-        
-        _ref.updateChildValues([
-            "date": _date,
-            "desc": descTextfield.text!
-        ]) { (error, ref) in
-                if(error == nil) {
-                    HUD.flash(.success, delay: 0.2) { finished in
-                        self.navigationController?.popViewController(animated: true)
-                    }
-                } else {
-                    HUD.flash(.error)
-                }
+        self.dismiss(animated: true, completion: {
+            guard let _date = DateHelper.dateString(from: self.task.date), self.descTextfield.text?.isEmpty == false else {
+                return
             }
+            
+            self._ref.updateChildValues([
+                "date": _date,
+                "desc": self.descTextfield.text!
+            ]) { (error, ref) in
+                error == nil ? HUD.flash(.success) : HUD.flash(.error)
+            }
+        })
     }
 }
