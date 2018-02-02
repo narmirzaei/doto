@@ -9,6 +9,8 @@
 import UIKit
 
 class BaseViewController: UIViewController {
+    var modelObservers = [NSKeyValueObservation]()
+    
     func setupUserInterface() { return }
     
     override func viewDidLoad() {

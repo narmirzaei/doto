@@ -23,6 +23,7 @@
 		87AE6B8D2023388600E473B7 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 87AE6B8C2023388500E473B7 /* Info.plist */; };
 		87AE6B8F2023388C00E473B7 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 87AE6B8E2023388C00E473B7 /* GoogleService-Info.plist */; };
 		87AE6B91202365BD00E473B7 /* TaskViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87AE6B90202365BD00E473B7 /* TaskViewController.swift */; };
+		87DE565020245E1300652660 /* FirebaseDataTransport.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87DE564F20245E1300652660 /* FirebaseDataTransport.swift */; };
 		AC351CB92850CFDE176AA791 /* Pods_DoToUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CF13FDC1DD6A498154A83684 /* Pods_DoToUITests.framework */; };
 		D75F31947A681B633E1B04B8 /* Pods_DoToTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7CA609E25A5CDDD86CBE263E /* Pods_DoToTests.framework */; };
 		F6662A49A228A87A1FB9EB54 /* Pods_DoTo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 285BF732CF9A9CF6A88BE81B /* Pods_DoTo.framework */; };
@@ -73,6 +74,7 @@
 		87AE6B8C2023388500E473B7 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = SOURCE_ROOT; };
 		87AE6B8E2023388C00E473B7 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = SOURCE_ROOT; };
 		87AE6B90202365BD00E473B7 /* TaskViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskViewController.swift; sourceTree = "<group>"; };
+		87DE564F20245E1300652660 /* FirebaseDataTransport.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseDataTransport.swift; sourceTree = "<group>"; };
 		94624ACFABC4ECB651D5C0FB /* Pods-DoToUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DoToUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-DoToUITests/Pods-DoToUITests.release.xcconfig"; sourceTree = "<group>"; };
 		997CB880438AA4313DB871C4 /* Pods-DoToTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DoToTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-DoToTests/Pods-DoToTests.release.xcconfig"; sourceTree = "<group>"; };
 		CF13FDC1DD6A498154A83684 /* Pods_DoToUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DoToUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -146,8 +148,7 @@
 				8735FC292022521F0027D73A /* Models */,
 				8735FC2A202252250027D73A /* Views */,
 				8735FC28202252160027D73A /* Controllers */,
-				87AE6B89202332E200E473B7 /* Helpers */,
-				8735FC3B202266660027D73A /* Extensions */,
+				87DE564E20245DD900652660 /* Library  */,
 			);
 			path = DoTo;
 			sourceTree = "<group>";
@@ -239,6 +240,24 @@
 				87AE6B8A202332EE00E473B7 /* DateHelper.swift */,
 			);
 			path = Helpers;
+			sourceTree = "<group>";
+		};
+		87DE564D20245DCB00652660 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				87DE564F20245E1300652660 /* FirebaseDataTransport.swift */,
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
+		87DE564E20245DD900652660 /* Library  */ = {
+			isa = PBXGroup;
+			children = (
+				87AE6B89202332E200E473B7 /* Helpers */,
+				8735FC3B202266660027D73A /* Extensions */,
+				87DE564D20245DCB00652660 /* Protocols */,
+			);
+			path = "Library ";
 			sourceTree = "<group>";
 		};
 		B194B7A579FDF61B10E20D4B /* Pods */ = {
@@ -561,6 +580,7 @@
 				87AE6B8B202332EE00E473B7 /* DateHelper.swift in Sources */,
 				8735FBFA202251D40027D73A /* AppDelegate.swift in Sources */,
 				8735FC36202257BD0027D73A /* TaskModel.swift in Sources */,
+				87DE565020245E1300652660 /* FirebaseDataTransport.swift in Sources */,
 				8735FC34202257B40027D73A /* BaseModel.swift in Sources */,
 				8735FC32202256C40027D73A /* TaskTableViewCell.swift in Sources */,
 				87AE6B91202365BD00E473B7 /* TaskViewController.swift in Sources */,

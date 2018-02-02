@@ -8,6 +8,6 @@
 
 import Foundation
 
-class BaseModel {
-    
+class BaseModel: NSObject {
+    var uid: String?
 }

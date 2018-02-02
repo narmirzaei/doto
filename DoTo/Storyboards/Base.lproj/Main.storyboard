@@ -43,7 +43,7 @@
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="CUX-lO-ha8">
                             <color key="tintColor" red="0.5946834352" green="0.1280144453" blue="0.57268613580000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <connections>
-                                <segue destination="Hvt-it-KQY" kind="show" id="NRm-qH-3bQ"/>
+                                <segue destination="Hvt-it-KQY" kind="show" identifier="TasksToTaskDetailSegue" id="NRm-qH-3bQ"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -60,7 +60,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" borderStyle="roundedRect" placeholder="i.e. Buy a new pair of shoes" textAlignment="natural" clearsOnBeginEditing="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="fMu-fb-9eY">
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" borderStyle="roundedRect" placeholder="i.e. Buy a new pair of shoes" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="fMu-fb-9eY">
                                 <rect key="frame" x="10" y="143.5" width="355" height="100"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="100" id="C3r-8n-Ivs"/>

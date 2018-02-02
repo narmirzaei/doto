@@ -9,12 +9,17 @@
 import Foundation
 
 class TaskModel: BaseModel {
-    var date: Date?
-    var desc: String?
+    @objc dynamic var date: Date?
+    @objc dynamic var desc: String?
     
     convenience init(date: Date?, header: String?, desc: String?) {
+        self.init(uid: nil, date: date, header: header, desc: desc)
+    }
+    
+    convenience init (uid: String?, date: Date?, header: String?, desc: String?) {
         self.init()
         
+        self.uid = uid
         self.date = date
         self.desc = desc
     }

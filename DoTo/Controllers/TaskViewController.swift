@@ -10,9 +10,12 @@ import UIKit
 import PKHUD
 import FirebaseDatabase
 
-class TaskViewController: BaseViewController {
-    var ref: DatabaseReference!
+class TaskViewController: BaseViewController, FirebaseDataTransport {
+    public var task = TaskModel(date: Date(), header: "", desc: "")
     
+    private var _ref: DatabaseReference!
+    private var _handlerTaskUpdate: DatabaseHandle?
+
     private let datePickerView: UIDatePicker = {
         let _datePickerView = UIDatePicker()
         _datePickerView.datePickerMode = UIDatePickerMode.date
@@ -27,10 +30,38 @@ class TaskViewController: BaseViewController {
         datePickerTextfield.becomeFirstResponder()
     }
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         
-        ref = Database.database().reference()
+        self.modelObservers = [
+            task.observe(\.date, options: [.initial]) { (task, change) in
+                self.dateButton.setTitle(DateHelper.dateString(from: task.date), for: .normal)
+            },
+            task.observe(\.desc, options: [.initial]) { (task, change) in
+                self.descTextfield.text = task.desc
+            }
+        ]
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        _ref = { (task: TaskModel?) -> DatabaseReference in
+            guard let _uid = task?.uid else {
+                return Database.database().reference(withPath: "tasks").childByAutoId()
+            }
+            return Database.database().reference(withPath: "tasks/\(_uid)")
+        }(task)
+        
+        task.uid = _ref.key
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        for observer in self.modelObservers {
+            observer.invalidate()
+        }
+        
+        super.viewWillDisappear(animated)
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -41,7 +72,6 @@ class TaskViewController: BaseViewController {
         view.addSubview(datePickerTextfield)
         datePickerTextfield.inputView = datePickerView
         datePickerView.addTarget(self, action: #selector(taskDateValueChanged(sender:)), for: .valueChanged)
-        updateDateButton(datePickerView.date)
         
         let saveDoubleTapGesture = UITapGestureRecognizer(target: self, action: #selector(saveTask))
         saveDoubleTapGesture.numberOfTapsRequired = 2
@@ -49,16 +79,15 @@ class TaskViewController: BaseViewController {
     }
     
     @objc func taskDateValueChanged(sender: UIDatePicker) {
-        updateDateButton(sender.date)
+        task.date = sender.date
     }
     
     @objc func saveTask() {
-        guard let _date = DateHelper.dateString(from: datePickerView.date), descTextfield.text?.isEmpty == false else {
+        guard let _date = DateHelper.dateString(from: task.date), descTextfield.text?.isEmpty == false else {
             return
         }
-        let _refHandle = ref.child("tasks").childByAutoId()
         
-        _refHandle.updateChildValues([
+        _ref.updateChildValues([
             "date": _date,
             "desc": descTextfield.text!
         ]) { (error, ref) in
@@ -71,10 +100,4 @@ class TaskViewController: BaseViewController {
                 }
             }
     }
-    
-    //MARK: Private methods
-    private func updateDateButton(_ date: Date) {
-        dateButton.setTitle(DateHelper.dateString(from: date), for: .normal)
-    }
-    
 }

@@ -10,41 +10,21 @@ import UIKit
 import PKHUD
 import FirebaseDatabase
 
-class MainViewController: UITableViewController {
-    var tasksGrouped: [String: [TaskModel]] = [:]
-    var tasksGroupedSortedKeys : [String] = []
-    var ref: DatabaseReference!
-    fileprivate var _refHandle: DatabaseHandle!
+class MainViewController: UITableViewController, FirebaseDataTransport {
+    private var _ref: DatabaseReference!
+    private var _handlerObserveTasksValueChange: DatabaseHandle?
+    
+    private var tasksGrouped: [String: [TaskModel]] = [:]
+    private var tasksGroupedSortedKeys : [String] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         tableView.register(UINib(nibName: "TaskTableViewCell", bundle: nil), forCellReuseIdentifier: "TaskTableViewCell")
         
-        HUD.show(.progress)
-        ref = Database.database().reference()
-        
-        ref.child("tasks").observe(.value, with: { (snapshot) in
-            var _tasks = [TaskModel]()
-            if let tasksCollection = snapshot.value as? NSDictionary {
-                for (_, task) in tasksCollection {
-                    if let _task = task as? NSDictionary {
-                        _tasks.append(TaskModel(date: DateHelper.date(from: _task["date"] as? String) , header: _task["header"] as? String, desc: _task["desc"] as? String))
-                    }
-                }
-                
-                self.tasksGrouped = self.groupTasksByDate(_tasks)
-                self.tasksGroupedSortedKeys = self.tasksGrouped.keys.sorted { $0 > $1 }
-            } else {
-                self.tasksGrouped.removeAll()
-                self.tasksGroupedSortedKeys.removeAll()
-            }
-            
-            self.tableView.reloadData()
-            HUD.hide()
-        }) { (error) in
-            HUD.flash(.error)
-        }
+        _ref = Database.database().reference(withPath: "tasks")
+    
+        fetchData(path: nil)
     }
     
     //MARK: UITableViewDataSource
@@ -71,8 +51,51 @@ class MainViewController: UITableViewController {
         return UITableViewCell()
     }
     
+    //MARK: UITableViewDelegate
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        performSegue(withIdentifier: "TasksToTaskDetailSegue", sender: tableView.cellForRow(at: indexPath))
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "TasksToTaskDetailSegue", let taskDetailViewController = segue.destination as? TaskViewController {
+            if let selectedIndexPath = tableView.indexPathForSelectedRow {
+                taskDetailViewController.task = tasksGrouped[tasksGroupedSortedKeys[selectedIndexPath.section]]![selectedIndexPath.row]
+                tableView.deselectRow(at: selectedIndexPath, animated: true)
+            }
+        }
+    }
+    
     deinit {
-        ref.child("tasks").removeObserver(withHandle: _refHandle)
+        if let _refHandle = _handlerObserveTasksValueChange {
+            _ref.removeObserver(withHandle: _refHandle)
+        }
+    }
+    
+    //MARK: FirebaseDataTransport
+    func fetchData(path: String?) {
+        HUD.show(.progress)
+        
+        _handlerObserveTasksValueChange = _ref.observe(.value, with: { (snapshot) in
+            var _tasks = [TaskModel]()
+            if let tasksCollection = snapshot.value as? NSDictionary {
+                for (key, task) in tasksCollection {
+                    if let _task = task as? NSDictionary {
+                        _tasks.append(TaskModel(uid: key as? String, date: DateHelper.date(from: _task["date"] as? String) , header: _task["header"] as? String, desc: _task["desc"] as? String))
+                    }
+                }
+                
+                self.tasksGrouped = self.groupTasksByDate(_tasks)
+                self.tasksGroupedSortedKeys = self.tasksGrouped.keys.sorted { $0 > $1 }
+            } else {
+                self.tasksGrouped.removeAll()
+                self.tasksGroupedSortedKeys.removeAll()
+            }
+            
+            self.tableView.reloadData()
+            HUD.hide()
+        }) { (error) in
+            HUD.flash(.error)
+        }
     }
     
     //MARK: Private methods
